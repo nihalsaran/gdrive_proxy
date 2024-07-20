@@ -7,6 +7,7 @@ app.use(cors());
 
 app.get('/api/proxy', (req, res) => {
   const url = req.query.url;
+  console.log('Requested URL:', url);
   if (!url) {
     return res.status(400).send('URL is required');
   }
@@ -15,6 +16,7 @@ app.get('/api/proxy', (req, res) => {
     { url, headers: { 'User-Agent': 'Mozilla/5.0' } },
     (error, response, body) => {
       if (error) {
+        console.error('Error:', error);
         return res.status(500).send('Error');
       }
       res.set('Content-Type', response.headers['content-type']);
@@ -23,7 +25,4 @@ app.get('/api/proxy', (req, res) => {
   );
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+module.exports = app;
