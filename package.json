@@ -1,0 +1,17 @@
+{
+  "name": "gdrive_proxy",
+  "version": "1.0.0",
+  "main": "proxy.js",
+  "scripts": {
+     "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "request": "^2.88.2"
+  }
+}
