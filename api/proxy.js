@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
-app.get('/proxy', (req, res) => {
+app.get('/api/proxy', (req, res) => {
   const url = req.query.url;
   if (!url) {
     return res.status(400).send('URL is required');
